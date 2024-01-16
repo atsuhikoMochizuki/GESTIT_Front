@@ -1,0 +1,46 @@
+Instructions pour lancer GESTIT:
+- créer une base de données MySQL nommée gestit dans le SGBDR
+	- le nom d'utilisateur et le mot de passe doivent correspondrent avec ceux du fichier
+  	application.properties dans le projet SpringBoot en backend
+- Si le dossier node_modules n'est pas présent dans le projet front, lancer npm i (installation dépendances)
+- Lancer gestit_back depuis la classe main (impossible à packager, il faut trouver le bug lors de la compilation)
+	- La base de données doit se créer avec un petit jeu de données
+	- Attention, spring security est activé, donc l'interface swagger (http://localhost:8080/swagger-ui/index.html)
+	  n'est pas accessible
+- ouvrir le front
+	- si le dossier des dépendances n'est pas présent (node_modules) faire npm i
+	- pour lancer le serveur de développement faire ng serve
+	- la page est accessible à http://localhost:4200/
+- démarrer redis
+	- sur windows : dans le shell, lancer ubuntu (doit être installé via le wsl) : $ ubuntu
+- envoyer une requête http pour obtenir le token: les requêtes sont dans le fichier du backend 	http/testPourOA/authentification.http
+	- on peut utiliser:
+	### LOGIN COLLABORATEUR
+	POST localhost:8080/login
+	Content-Type: application/json
+
+	{
+  		"email": "collaborateur1@gestit.fr",
+  	"motDePasse": "passCollab1"
+	}
+	
+	ou
+	### LOGIN ADMINISTRATEUR
+	POST localhost:8080/login
+	Content-Type: application/json
+
+	{
+  		"email": "administrateur1@gestit.fr",
+  		"motDePasse": "passAdmin1"
+	}
+
+	nota:
+	###
+
+	POST localhost:8080/signout
+	Content-Type: application/json
+	JWT-TOKEN: 	eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwicGFzc3dvcmQiOiJ7YmNyeXB0fSQyYSQxMCR3cHEubVRJaUthMEtuM1dLR0RkQ	2p1YW1LVXd4Wi9EdS51R01rVkJzOHB3QXBXaXNuTTVXeSIsInJvbGVzIjpbIkNPTExBQk9SQVRFVVIiXSwiZW1haWwiOiJjb2xsYWJvcmF0ZXVyM0B	nZXN0aXQuZnIiLCJ1c2VybmFtZSI6IkNvbGxhYjMiLCJleHAiOjE2OTM1ODM5MzN9.oqpR_FH9OIlIkSewehAc1vyvGIZNPjE80qaMOuF_3rE
+
+On peut ensuite se connecter depuis le front avec le mot de passe normal(pour collaborateur1@gestit.fr ou administrateur1@gestit.fr)
+		
+
