@@ -1,0 +1,74 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "covoiturages": [
+   {
+      "id": 30,
+      "nombrePlacesRestantes": 1,
+      "dureeTrajet": 400,
+      "distanceKm": 500,
+      "dateDepart": "2023-10-12T10:24",
+      "adresseDepart": {
+        "numero": 25,
+        "codePostal": "13000",
+        "voie": "quai vieux port",
+        "commune": "Marseille"
+      },
+      "adresseArrivee": {
+        "numero": 41,
+        "voie": "impasse des argonautes",
+        "commune": "Chartres",
+        "codePostal": 62000
+      },
+      "organisateur": {
+        "nom": "Marcoret",
+        "motDePasse": "1234",
+        "email": "JeanMarcMarcoret@yahoo.fr",
+        "id": 1
+      },
+      "passagers": [
+        {
+          "nom": "Barboula",
+          "motDePasse": "4578",
+          "email": "e.barboula@free.fr",
+          "id": 2
+        },
+        {
+          "nom": "Frigeon",
+          "motDePasse": "9785",
+          "email": "alice.frigeon@gmail.fr",
+          "id": 3
+        },
+        {
+          "nom": "Pinsonnet",
+          "motDePasse": "7918",
+          "email": "PinsonnetDu23@chu-gueret.fr",
+          "id": 4
+        }
+      ],
+      "vehiculePerso": {
+        "id": 1,
+        "modele": "3008",
+        "marque": "Peugeot",
+        "nombreDePlaceDisponibles": 5,
+        "immatriculation": "AA-123-BB",
+        "userId": 1
+      }
+    }
+  ]
+}

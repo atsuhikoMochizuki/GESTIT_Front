@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="d-flex flex-column align-items-center">
+        <div class="d-flex flex-row mt-2 mb-3 ">
+
+            <select [ngClass]="arrivee_style_widget" [(ngModel)]="name" [disabled]="arrivee_disabledFilter"
+                placeholder="City" [(ngModel)]="selectedCity" (change)="onFiltrageVilleArriveeChanged($event)">
+                <option>--Ville d'arrivée--</option>
+                <option *ngFor="let city of arrivee_liste">
+                    {{city}}
+                </option>
+            </select>
+
+            <select [ngClass]="depart_styleWidget" [disabled]="depart_verrouillageWidget" placeholder="City"
+                [(ngModel)]="villeDepart" (change)="onFiltrageVilleDepartChanged($event)">
+                <option>--Ville de départ--</option>
+                <option *ngFor="let city of depart_liste">
+                    {{city}}
+                </option>
+            </select>
+
+            <input [disabled]="date_verrouillageWidget" type="date" (change)="onDateEntree($event)"
+                placeholder="Date départ" [(ngModel)]="date_searchValue" [ngClass]="{'activeFilterSearchInProgress': filtrage.filter_Date_value && !this.date_isFounded && this.depart_isFounded,
+                'activeFilterFounded': filtrage.filter_Date_value && this.date_isFounded && this.depart_isFounded}">
+
+            <button type="button" (click)="onResetFiltrage()" class="btn btn-primary">Reset Filtrage</button>
+
+        </div>
+
+        <div class="listeCovoiturages" style="background-color: whitesmoke">
+            <!-- <app-covoiturage *ngFor="let cov of covoiturages$ | async" [covoituragereserve]="cov"></app-covoiturage> -->
+            <app-covoiturage *ngFor="let cov of listeAafficher" [covoituragereserve]="cov"></app-covoiturage>
+        </div>
+    </div>
+</div>
